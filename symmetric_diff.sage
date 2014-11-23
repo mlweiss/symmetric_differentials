@@ -44,17 +44,17 @@ def mod_gstar(ring, polynomial_list):
     basis = defaultdict(lambda: False)
     count = 1
     n = len(polynomial_list)
-    matrix = np.zeros((n, n))
-
+    my_matrix = np.zeros((n, n))
+    coeff_matrix = copy(matrix(ZZ, n, n))
     for index, polynomial in enumerate(polynomial_list):
         for monomial in map(mul, zip(polynomial.coefficients(), polynomial.monomials())):
             if monomial.degree(u) < monomial.degree(du):
                 if not basis[monomial.lm()]:
                     basis[monomial.lm()] = count
                     count += 1
-                matrix[index][basis[monomial.lm()] - 1] = monomial.lc()
-    print matrix
-    return matrix_rank(matrix)
+                coeff_matrix[index, basis[monomial.lm()] - 1] = monomial.lc()
+    print coeff_matrix
+    return coeff_matrix.rank()
 
 
 
@@ -85,7 +85,7 @@ def test_sums(lower_bound, upper_bound):
         print total_sum, inv_mod_gstar
         assert(inv_mod_gstar == total_sum)
 
-test_sums(22, 23)
+test_sums(22, 50)
 
 
 
