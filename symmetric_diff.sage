@@ -1,9 +1,6 @@
 import sys
 from sage.all import *
 from collections import defaultdict
-#from collections import ifilter as myfilter
-import numpy as np
-from numpy.linalg import matrix_rank
 
 
 R.<z1, z2, dz1, dz2> = PolynomialRing(QQ, ['z1', 'z2', 'dz1', 'dz2'])
@@ -44,7 +41,6 @@ def mod_gstar(ring, polynomial_list):
     basis = defaultdict(lambda: False)
     count = 1
     n = len(polynomial_list)
-    my_matrix = np.zeros((n, n))
     coeff_matrix = copy(matrix(ZZ, n, n))
     for index, polynomial in enumerate(polynomial_list):
         for monomial in map(mul, zip(polynomial.coefficients(), polynomial.monomials())):
