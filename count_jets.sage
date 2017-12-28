@@ -82,10 +82,10 @@ def generate_matrices(i, n):
             r += d
             t += d + 1
 
-        cols= tuple([item for sublist in columns_to_keep for item in sublist])
-        rows= tuple([item for sublist in rows_to_keep for item in sublist])
+        cols = tuple([item for sublist in columns_to_keep for item in sublist])
+        rows = tuple([item for sublist in rows_to_keep for item in sublist])
         pcols = list(columns_to_keep)
-        prows= list(rows_to_keep)
+        prows = list(rows_to_keep)
 #         for idx in range(1,len(pcols)):
 #             for jdx in range(len(pcols[idx])):
 #                 pcols[idx][jdx] -= ((c+1)*(c+2))/2 - ((c+1-idx)*(c+2-idx))/2
@@ -110,13 +110,8 @@ def generate_matrices(i, n):
 #        print truncated_matrix.rank()
 
 #        print '(i,c) = (%d,%d), rank = %d' % (i,c,truncated_matrix.rank())
-#        print '----------------------------------'
-      
-#    print h
+#        print '----------------------------------'      
     return h, ary
-    #matrix = block_pascal(c,min(c,l))
-    #print matrix.str()
-sum=0
 
 def count_jets(n):
     sum = 0
@@ -128,9 +123,6 @@ def count_jets(n):
         large_ary += [ary]
     return sum, large_ary
 print count_jets(9)[0]
-# for i in range(11, 111):
-#     print 'n = (%d, %d)' % (3*i, count_jets(3*i)[0])
-#block_pascal_column(5, 4).augment(matrix(5, 4, 0).stack(block_pascal_column(4, 3))
 
 
 
