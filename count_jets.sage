@@ -13,7 +13,7 @@ def pascal_matrix(size):
 
 def block_pascal_column(c, l):
     matrices = []
-    M = pascal_alt(size=c)
+    M = pascal_matrix(size=c)
     for i in range(1, l):
         R = matrix(c-i, i, 0).augment(pascal_matrix(size=c-i).cholesky())
         M = M.stack(R)
